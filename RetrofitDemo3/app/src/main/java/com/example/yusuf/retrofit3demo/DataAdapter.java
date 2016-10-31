@@ -39,21 +39,16 @@ public class DataAdapter extends RecyclerView.Adapter <DataAdapter.MyViewHolder>
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-        //holder.lang.setText(String.valueOf(dataList.get(position).getGeometry().getLocation().getLng()));
-        //holder.lat.setText(String.valueOf(dataList.get(position).getGeometry().getLocation().getLat()));
-
         holder.fullAddress.setText(dataList.get(position).getFormatted_address());
 
         for(int i=0; i < dataList.get(position).getAddress_components().size(); i++){
 
             if (dataList.get(position).getAddress_components().get(i).getTypes().get(0).equals("administrative_area_level_1")){
-                //Log.v("MEKAN", "Mekan Adı : " + dataList.get(position).getAddress_components().get(i).toString());
                 holder.shortName.setText(dataList.get(position).getAddress_components().get(i).getShort_name());
             }
 
         }
 
-        //holder.lat.setText(dataList.get(position).getAddress_components().get(position).getShort_name());
 
     }
 
